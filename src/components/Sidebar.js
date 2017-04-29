@@ -9,6 +9,22 @@ import MenuItem from 'material-ui/MenuItem';
 // Nav Icons
 import ActionHome from 'material-ui/svg-icons/action/home';
 
+let toggleOpenDrawer = () => {
+        if (!this.state.mobile) {
+            return;
+        }
+        this.setState({
+            open: !this.state.open
+        })
+    }
+
+let setSmall = () => {
+    this.setState({open: false, docked: false, mobile: true})
+}
+let setLarge = () => {
+    this.setState({open: true, docked: true, mobile: false})
+}
+
 export default class Sidebar extends React.Component {
 
     constructor() {
@@ -18,20 +34,6 @@ export default class Sidebar extends React.Component {
             docked: null,
             mobile: null
         }
-    }
-    toggleOpenDrawer = () => {
-        if (!this.state.mobile) {
-            return;
-        }
-        this.setState({
-            open: !this.state.open
-        })
-    }
-    setSmall = () => {
-        this.setState({open: false, docked: false, mobile: true})
-    }
-    setLarge = () => {
-        this.setState({open: true, docked: true, mobile: false})
     }
     componentWillMount() {
         // Make navbar responsive
